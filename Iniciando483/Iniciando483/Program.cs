@@ -10,7 +10,9 @@ namespace Iniciando483
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Ola mundo");
+            Console.WriteLine("Ola mundo!");
+
+            Console.WriteLine("Atualizando meu git");
 
             Console.ReadKey(true);
         }
