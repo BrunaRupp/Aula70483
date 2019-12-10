@@ -31,7 +31,6 @@ namespace ClasseCadastroPessoas
             {
                 NomeCompleto = "João Arthur",
                 DataNascimento = "15/07/1990"
-
             },
             new Pessoa()
             {
