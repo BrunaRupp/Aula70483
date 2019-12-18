@@ -25,9 +25,25 @@ namespace SistemaControleEstoque.View
         {
             InitializeComponent();
 
-            var teste = Estoque.RetornaListaEstoque();
+            var estoque = Estoque.GetEstoques();
+            var usuarios = Usuario.GetUsuarios();
+
+            dataGrid.ItemsSource = (from est in estoque
+                                    join usu in usuarios on est.UsuarioCriacao equals usu.Id
+                                    join usualt in usuarios on est.UsuarioAlteracao equals usualt.Id
+                                    select new
+                                    {
+                                        Produto = est.Produto,
+                                        Quantidade = est.Quantidade,
+                                        Valor = est.Valor.ToString("C"),
+                                        UsuarioInc = usu.Login,
+                                        UsuarioAlt = usualt.Login
+
+                                    }).ToList();
+
         }
 
         EstoqueController Estoque = new EstoqueController();
+        UsuarioController Usuario = new UsuarioController();
     }
 }

@@ -22,6 +22,11 @@ namespace SistemaControleEstoque.Controller
             return ctx.Usuarios.ToList<Usuario>().Exists(x => x.Login == usuario && x.Senha == Hash(senha));
         }
 
+        public List<Usuario> GetUsuarios()
+        {
+            return ctx.Usuarios.ToList();
+        }
+
         public void CadastrarUsuario(Usuario item)
         {
             item.Senha = Hash(item.Senha);
